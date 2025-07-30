@@ -1,3 +1,5 @@
+/* css/style.css */
+
 * {
     margin: 0;
     padding: 0;
@@ -60,6 +62,9 @@ body {
     background: white;
     position: relative;
     min-width: 160px;
+    /* Добавляем оранжевую пунктирную рамку */
+    border: 2px dashed #ff9800; /* Оранжевый цвет, пунктирный стиль */
+    padding: 5px; /* Небольшой отступ внутри рамки */
 }
 
 .top-coupon-img {
@@ -203,7 +208,8 @@ body {
 .coupons-list {
     padding: 0 15px;
     display: grid;
-    grid-template-columns: 1fr;
+    /* Адаптивная сетка: 1 колонка на мобильных, 2 на планшетах, 3 на десктопах */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -214,6 +220,12 @@ body {
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     transition: transform 0.2s;
+    /* Минимальная высота для единообразия карточек */
+    display: flex;
+    flex-direction: column;
+    /* Добавляем оранжевую пунктирную рамку */
+    border: 2px dashed #ff9800; /* Оранжевый цвет, пунктирный стиль */
+    padding: 5px; /* Небольшой отступ внутри рамки */
 }
 
 .coupon-card:active {
@@ -225,6 +237,7 @@ body {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #eee;
+    flex-shrink: 0; /* Заголовок не сжимается */
 }
 
 .coupon-logo {
@@ -238,6 +251,7 @@ body {
     justify-content: center;
     font-weight: bold;
     color: #0d4a9e;
+    flex-shrink: 0;
 }
 
 .coupon-business {
@@ -256,21 +270,27 @@ body {
 
 .coupon-content {
     padding: 15px;
+    flex-grow: 1; /* Контент занимает оставшееся пространство */
+    display: flex;
+    flex-direction: column;
 }
 
 .coupon-img {
     width: 100%;
-    height: 150px;
+    /* Фиксированная высота для единообразия */
+    height: 180px; 
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     margin-bottom: 12px;
+    flex-shrink: 0;
 }
 
 .coupon-title {
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 8px;
+    flex-grow: 1; /* Заголовок может растягиваться */
 }
 
 .coupon-description {
@@ -278,6 +298,7 @@ body {
     font-size: 0.95rem;
     margin-bottom: 12px;
     line-height: 1.4;
+    flex-grow: 1; /* Описание может растягиваться */
 }
 
 .coupon-discount {
@@ -287,8 +308,9 @@ body {
     margin-bottom: 12px;
     display: flex;
     align-items: center;
-    /* Добавим пунктирную рамку по умолчанию */
-    border: 2px dashed #ffd166;
+    flex-shrink: 0;
+    /* Добавим оранжевую пунктирную рамку */
+    border: 2px dashed #ff9800; /* Оранжевый цвет, пунктирный стиль */
 }
 
 .coupon-discount-icon {
@@ -313,6 +335,7 @@ body {
 .coupon-actions {
     display: flex;
     gap: 10px;
+    flex-shrink: 0; /* Действия не сжимаются */
 }
 
 .btn-show {
@@ -392,10 +415,31 @@ body {
 /* Адаптация для десктопа */
 @media (min-width: 768px) {
     body {
-        max-width: 500px;
-        margin: 0 auto;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        padding-bottom: 0;
+        /* Убираем фиксированное ограничение ширины и тень для мобильной версии */
+        /* max-width: 500px; */
+        /* margin: 0 auto; */
+        /* box-shadow: 0 0 20px rgba(0,0,0,0.1); */
+        padding-bottom: 0; /* Убираем нижний отступ, т.к. футер скрыт */
+        background-color: #e9ecef; /* Фон для десктопа */
+    }
+    
+    /* Создаем центрированный контейнер для десктопной версии */
+    .header,
+    .search-container,
+    .search-filters,
+    .top-coupons,
+    .filters,
+    .coupons-list,
+    .legal-note {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .header {
+        border-radius: 0 0 15px 15px; /* Закругляем только нижние углы */
     }
     
     .app-container {
@@ -404,7 +448,7 @@ body {
         overflow: hidden;
         box-shadow: 0 5px 25px rgba(0,0,0,0.1);
         margin: 20px auto;
-        max-width: 1000px;
+        max-width: 1200px; /* Увеличиваем максимальную ширину */
     }
     
     .desktop-nav {
@@ -438,7 +482,19 @@ body {
     }
     
     .app-footer {
-        display: none;
+        display: none; /* Скрываем футер на десктопе */
+    }
+    
+    /* Корректируем сетку купонов для десктопа */
+    .coupons-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .top-coupons, .filters, .search-container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -476,7 +532,8 @@ body {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
-    border: 2px dashed #ffd166;
+    /* Добавим оранжевую пунктирную рамку */
+    border: 2px dashed #ff9800; /* Оранжевый цвет, пунктирный стиль */
 }
 
 .coupon-modal-discount-value {
@@ -522,60 +579,6 @@ body {
     width: 100%;
     cursor: pointer;
 }
-
-/* Добавляем в конец файла css/style.css */
-
-/* Стили для кнопки сохранения изображения */
-.btn-save-image {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    width: 100%;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.btn-save-image:hover {
-    background: #218838;
-}
-
-.coupon-modal-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Стили для уведомлений */
-.notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
-}
-
-.notification.success {
-    background: #28a745;
-}
-
-.notification.error {
-    background: #dc3545;
-}
-
-.notification.info {
-    background: #17a2b8;
-}
-
-/* Добавляем в конец файла css/style.css */
 
 /* Стили для кнопки сохранения изображения */
 .btn-save-image {
