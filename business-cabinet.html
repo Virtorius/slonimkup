@@ -1,0 +1,240 @@
+<!-- business-cabinet.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабинет бизнеса - Слоним Скидки</title>
+    <link rel="stylesheet" href="css/business.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="business-header">
+        <div class="business-header-content">
+            <div class="business-logo">
+                <span class="business-logo-icon">🏪</span>
+                <span>Слоним Скидки</span>
+            </div>
+            <nav class="business-nav">
+                <a href="index.html">Главная</a>
+                <a href="business.html">Визитка</a>
+                <a href="business-catalog.html">Каталог</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="business-container">
+        <!-- Приветствие -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; text-align: center;">
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">Добро пожаловать, ИП "Рандеву"!</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Управляйте вашим профилем и купонами</p>
+        </div>
+
+        <!-- Статистика -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div style="background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #0d4a9e; margin-bottom: 10px;">42</div>
+                <div style="color: #6c757d;">Активных купонов</div>
+            </div>
+            <div style="background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #28a745; margin-bottom: 10px;">127</div>
+                <div style="color: #6c757d;">Просмотров за месяц</div>
+            </div>
+            <div style="background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #ffc107; margin-bottom: 10px;">23</div>
+                <div style="color: #6c757d;">Использовано купонов</div>
+            </div>
+            <div style="background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #e63946; margin-bottom: 10px;">1 247 BYN</div>
+                <div style="color: #6c757d;">Доход с купонов</div>
+            </div>
+        </div>
+
+        <!-- Основные действия -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 30px;">
+            <!-- Создание купона -->
+            <div class="business-form">
+                <h2 style="color: #0d4a9e; margin-bottom: 20px; text-align: center;">Создать новый купон</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="coupon-title">Название купона *</label>
+                        <input type="text" id="coupon-title" placeholder="Например: Скидка 20% на обед">
+                    </div>
+                    <div class="form-group">
+                        <label for="coupon-description">Описание *</label>
+                        <textarea id="coupon-description" placeholder="Опишите условия использования купона"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="coupon-discount">Скидка *</label>
+                        <input type="text" id="coupon-discount" placeholder="Например: -20% на обед, 12.90 BYN за комбо">
+                    </div>
+                    <div class="form-group">
+                        <label for="coupon-expiry">Срок действия *</label>
+                        <input type="date" id="coupon-expiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="coupon-image">Изображение купона</label>
+                        <input type="file" id="coupon-image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-block btn-success">Создать купон</button>
+                </form>
+            </div>
+
+            <!-- Управление профилем -->
+            <div class="business-form">
+                <h2 style="color: #0d4a9e; margin-bottom: 20px; text-align: center;">Редактировать профиль</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="business-name">Название ИП *</label>
+                        <input type="text" id="business-name" value="ИП &quot;Рандеву&quot;">
+                    </div>
+                    <div class="form-group">
+                        <label for="business-unp">УНП *</label>
+                        <input type="text" id="business-unp" value="192837465">
+                    </div>
+                    <div class="form-group">
+                        <label for="business-category">Категория *</label>
+                        <select id="business-category">
+                            <option value="food" selected>Еда</option>
+                            <option value="goods">Товары</option>
+                            <option value="services">Услуги</option>
+                            <option value="tech">Техника</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-description">Описание</label>
+                        <textarea id="business-description">Уютное кафе в центре Слонима. Свежие ингредиенты, уютная атмосфера и отличное обслуживание.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-logo">Логотип</label>
+                        <input type="file" id="business-logo" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-block">Сохранить изменения</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Список купонов -->
+        <section class="business-section">
+            <h2 class="business-section-title">Мои купоны</h2>
+            <div style="overflow-x: auto;">
+                <table class="business-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Скидка</th>
+                            <th>Срок действия</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Скидка на бизнес-ланч</td>
+                            <td>-20% на обед</td>
+                            <td>до 31.12.2024</td>
+                            <td><span style="background: #d4edda; color: #155724; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Активен</span></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Комбо-обед</td>
+                            <td>12.90 BYN</td>
+                            <td>до 30.11.2024</td>
+                            <td><span style="background: #d4edda; color: #155724; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Активен</span></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Десерт в подарок</td>
+                            <td>+Десерт</td>
+                            <td>до 15.11.2024</td>
+                            <td><span style="background: #f8d7da; color: #721c24; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Истёк</span></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Управление каталогом -->
+        <section class="business-section">
+            <h2 class="business-section-title">Каталог товаров/услуг</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="color: #0d4a9e;">Меню кафе</h3>
+                <button class="btn btn-success">Добавить товар/услугу</button>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="business-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Категория</th>
+                            <th>Цена</th>
+                            <th>Фото</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Классический завтрак</td>
+                            <td>Завтраки</td>
+                            <td>8.50 BYN</td>
+                            <td><img src="https://images.unsplash.com/photo-1514933651165-748f1867d82d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Фото" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Борщ</td>
+                            <td>Супы</td>
+                            <td>6.50 BYN</td>
+                            <td><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Фото" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Стейк из свинины</td>
+                            <td>Основные блюда</td>
+                            <td>15.90 BYN</td>
+                            <td><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Фото" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
+                            <td>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.9rem;">Редактировать</button>
+                                <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.9rem;">Удалить</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Футер -->
+    <footer class="business-footer">
+        <div class="footer-content">
+            <div class="footer-logo">Слоним<span>скидки</span></div>
+            <p>Единая платформа для локальных акций в Слониме</p>
+            <div class="social-links">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">V</a>
+                <a href="#" class="social-link">F</a>
+            </div>
+            <div class="copyright">
+                © 2024 Слонимскидки. Все права защищены.<br>
+                Создано с любовью для малого бизнеса Слонима
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

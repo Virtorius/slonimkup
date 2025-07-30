@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Слоним Скидки</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Админ-панель Слоним Скидки</h1>
+            <p class="admin-subtitle">Управление купонами и бизнес-аккаунтами</p>
+        </div>
+        
+        <div class="admin-actions">
+            <button id="add-coupon-btn" class="btn btn-success">➕ Добавить купон</button>
+            <button id="add-business-btn" class="btn btn-success">➕ Добавить бизнес</button>
+            <button id="export-data-btn" class="btn btn-warning">📤 Экспортировать данные</button>
+            <button id="import-data-btn" class="btn btn-warning">📥 Импортировать данные</button>
+            <button id="clear-data-btn" class="btn btn-danger">🗑️ Очистить данные</button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="coupons">Купоны</div>
+            <div class="tab" data-tab="businesses">Бизнесы</div>
+            <div class="tab" data-tab="stats">Статистика</div>
+        </div>
+        
+        <!-- Вкладка Купоны -->
+        <div class="tab-content active" id="coupons-tab">
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <h2 class="admin-card-title">➕ Добавить купон</h2>
+                    <form id="add-coupon-form">
+                        <div class="form-group">
+                            <label for="business-select">Бизнес *</label>
+                            <select id="business-select" name="businessId" required>
+                                <!-- Заполняется динамически -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Заголовок *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Описание *</label>
+                            <textarea id="description" name="description" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="discount">Скидка *</label>
+                            <input type="text" id="discount" name="discount" required placeholder="-20% на обед">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expiry">Срок действия *</label>
+                            <input type="date" id="expiry" name="expiry" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="type">Тип купона *</label>
+                            <select id="type" name="type" required>
+                                <option value="coupons">Купон</option>
+                                <option value="actions">Акция</option>
+                                <option value="sales">Распродажа</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Категория *</label>
+                            <select id="category" name="category" required>
+                                <option value="food">Еда</option>
+                                <option value="goods">Товары</option>
+                                <option value="tech">Техника</option>
+                                <option value="services">Услуги</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="coupon-image">Изображение</label>
+                            <input type="file" id="coupon-image" class="file-upload" accept="image/*">
+                            <div class="image-preview" id="coupon-image-preview">
+                                <span>Нет изображения</span>
+                            </div>
+                            <label for="coupon-image" class="upload-label">Выбрать изображение</label>
+                        </div>
+                        
+                        <!-- Новые поля для стилей купона -->
+                        <div class="form-group">
+                            <label>Стиль купона</label>
+                            <div class="coupon-style-controls">
+                                <div class="style-control">
+                                    <label for="background-color">Цвет фона:</label>
+                                    <input type="color" id="background-color" name="background-color" value="#fff8e6">
+                                </div>
+                                <div class="style-control">
+                                    <label for="border-color">Цвет рамки:</label>
+                                    <input type="color" id="border-color" name="border-color" value="#ffd166">
+                                </div>
+                                <div class="style-control">
+                                    <label for="border-style">Стиль рамки:</label>
+                                    <select id="border-style" name="border-style">
+                                        <option value="dashed">Пунктирная</option>
+                                        <option value="dotted">Точечная</option>
+                                        <option value="solid">Сплошная</option>
+                                    </select>
+                                </div>
+                                <div class="style-control">
+                                    <label for="border-width">Толщина рамки:</label>
+                                    <input type="range" id="border-width" name="border-width" min="1" max="10" value="2">
+                                    <span id="border-width-value">2px</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="is-top" name="is-top">
+                            <label for="is-top" style="display: inline;">Добавить в топ купонов</label>
+                        </div>
+                        
+                        <input type="hidden" id="coupon-id">
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" class="btn btn-block" id="save-coupon-btn">Сохранить</button>
+                            <button type="button" class="btn btn-danger btn-block" id="cancel-coupon-btn">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="coupon-list">
+                <div class="coupon-list-header">
+                    <span>Активные купоны</span>
+                    <span>Управление</span>
+                </div>
+                <div id="coupons-container">
+                    <!-- Купоны будут загружены динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Бизнесы -->
+        <div class="tab-content" id="businesses-tab">
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <h2 class="admin-card-title">➕ Добавить бизнес</h2>
+                    <form id="add-business-form">
+                        <div class="form-group">
+                            <label for="business-name">Название ИП *</label>
+                            <input type="text" id="business-name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business-unp">УНП *</label>
+                            <input type="text" id="business-unp" name="unp" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business-category">Категория *</label>
+                            <select id="business-category" name="category" required>
+                                <option value="food">Еда</option>
+                                <option value="goods">Товары</option>
+                                <option value="tech">Техника</option>
+                                <option value="services">Услуги</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business-description">Описание</label>
+                            <textarea id="business-description" name="description"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business-logo">Логотип</label>
+                            <input type="file" id="business-logo" class="file-upload" accept="image/*">
+                            <div class="image-preview" id="business-logo-preview">
+                                <span>Нет изображения</span>
+                            </div>
+                            <label for="business-logo" class="upload-label">Выбрать изображение</label>
+                        </div>
+                        
+                        <input type="hidden" id="business-id">
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" class="btn btn-block" id="save-business-btn">Сохранить</button>
+                            <button type="button" class="btn btn-danger btn-block" id="cancel-business-btn">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="coupon-list">
+                <div class="coupon-list-header">
+                    <span>Бизнес-аккаунты</span>
+                    <span>Управление</span>
+                </div>
+                <div id="businesses-container">
+                    <!-- Бизнесы будут загружены динамически -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Статистика -->
+        <div class="tab-content" id="stats-tab">
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <h2 class="admin-card-title">📊 Общая статистика</h2>
+                    <div class="admin-card-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-coupons">0</div>
+                            <div class="stat-label">Активных купонов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-businesses">0</div>
+                            <div class="stat-label">Бизнес-аккаунтов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-tops">0</div>
+                            <div class="stat-label">ТОП купонов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-expired">0</div>
+                            <div class="stat-label">Истекших купонов</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-card">
+                    <h2 class="admin-card-title">📈 Статистика по категориям</h2>
+                    <div id="category-stats">
+                        <!-- Статистика будет загружена динамически -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/admin.js"></script>
+    <!-- Добавим в конец файла admin.html, перед закрывающим тегом </body> -->
+<!-- Демонстрационные ссылки для тестирования -->
+<div style="position: fixed; bottom: 20px; right: 20px; background: #0d4a9e; color: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;">
+    <h4 style="margin: 0 0 10px 0;">Демо страницы:</h4>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="business.html" style="color: white; text-decoration: none; padding: 5px;">🏪 Веб-визитка</a>
+        <a href="business-catalog.html" style="color: white; text-decoration: none; padding: 5px;">📋 Каталог</a>
+        <a href="business-cabinet.html" style="color: white; text-decoration: none; padding: 5px;">⚙️ Кабинет</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слоним Скидки - Локальные купоны для жителей</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка приложения -->
+    <div class="header">
+        <h1 class="header-title">Слоним Скидки</h1>
+    </div>
+    
+    <!-- Поиск -->
+    <div class="search-container">
+        <div style="position: relative;">
+            <input type="text" id="main-search" class="main-search" placeholder="Поиск по названию, категории или бизнесу...">
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+    
+    <div class="search-filters">
+        <div class="search-filter active" data-filter="all">Все</div>
+        <div class="search-filter" data-filter="food">Еда</div>
+        <div class="search-filter" data-filter="goods">Товары</div>
+        <div class="search-filter" data-filter="services">Услуги</div>
+        <div class="search-filter" data-filter="coupons">Купоны</div>
+        <div class="search-filter" data-filter="actions">Акции</div>
+    </div>
+    
+    <!-- Топ 5 купонов -->
+    <div class="top-coupons">
+        <h2 class="top-coupons-title">Топ купонов</h2>
+        <div class="top-coupons-scroll">
+            <!-- Топ купоны будут загружены динамически -->
+        </div>
+    </div>
+    
+    <!-- Фильтры -->
+    <div class="filters">
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-filter-type="all">Все</div>
+            <div class="filter-tab" data-filter-type="coupons">Купоны</div>
+            <div class="filter-tab" data-filter-type="actions">Акции</div>
+            <div class="filter-tab" data-filter-type="sales">Распродажи</div>
+        </div>
+        
+        <div class="filter-categories">
+            <div class="filter-category active" data-category="all">Все</div>
+            <div class="filter-category" data-category="food">Еда</div>
+            <div class="filter-category" data-category="goods">Товары</div>
+            <div class="filter-category" data-category="tech">Техника</div>
+            <div class="filter-category" data-category="services">Услуги</div>
+        </div>
+    </div>
+    
+    <!-- Список купонов -->
+    <div class="coupons-list">
+        <!-- Купоны будут загружены динамически -->
+    </div>
+    
+    <!-- Юридическое примечание -->
+    <div class="legal-note">
+        Сервис предназначен исключительно для индивидуальных предпринимателей (ИП) и юридических лиц
+    </div>
+    
+    <!-- Футер -->
+    <div class="app-footer">
+        <div class="footer-item active">
+            <div class="footer-icon">🎫</div>
+            <div>Купоны</div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-icon">🔍</div>
+            <div>Поиск</div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-icon">⭐</div>
+            <div>Избранное</div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-icon">👤</div>
+            <div>Профиль</div>
+            <div class="admin-login" id="admin-login">Вход</div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Добавим в конец файла index.html, перед закрывающим тегом </body> -->
+<!-- Демонстрационные ссылки для тестирования -->
+<div style="position: fixed; bottom: 80px; right: 20px; background: #0d4a9e; color: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;">
+    <h4 style="margin: 0 0 10px 0;">Демо страницы:</h4>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="business.html" style="color: white; text-decoration: none; padding: 5px;">🏪 Веб-визитка</a>
+        <a href="business-catalog.html" style="color: white; text-decoration: none; padding: 5px;">📋 Каталог</a>
+        <a href="business-cabinet.html" style="color: white; text-decoration: none; padding: 5px;">⚙️ Кабинет</a>
+    </div>
+</div>
+</body>
+</html>

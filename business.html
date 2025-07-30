@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-визитка бизнеса - Слоним Скидки</title>
+    <link rel="stylesheet" href="css/business.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="business-header">
+        <div class="business-header-content">
+            <div class="business-logo">
+                <span class="business-logo-icon">🏪</span>
+                <span>Слоним Скидки</span>
+            </div>
+            <nav class="business-nav">
+                <a href="index.html">Главная</a>
+                <a href="business-catalog.html">Каталог</a>
+                <a href="business-cabinet.html">Кабинет</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="business-container">
+        <!-- Карточка бизнеса -->
+        <div class="business-card">
+            <div class="business-card-header">
+                <div class="business-logo-large">Р</div>
+                <h1 class="business-name">ИП "Рандеву"</h1>
+                <p class="business-description">Уютное кафе в центре Слонима. Свежие ингредиенты, уютная атмосфера и отличное обслуживание.</p>
+            </div>
+            <div class="business-info">
+                <div class="business-info-item">
+                    <div class="business-info-label">Категория</div>
+                    <div class="business-info-value">Кафе</div>
+                </div>
+                <div class="business-info-item">
+                    <div class="business-info-label">УНП</div>
+                    <div class="business-info-value">192837465</div>
+                </div>
+                <div class="business-info-item">
+                    <div class="business-info-label">Адрес</div>
+                    <div class="business-info-value">ул. Ленина, 25</div>
+                </div>
+                <div class="business-info-item">
+                    <div class="business-info-label">Телефон</div>
+                    <div class="business-info-value">+375 (29) 123-45-67</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Активные купоны -->
+        <section class="business-section">
+            <h2 class="business-section-title">Активные купоны</h2>
+            <div class="business-grid">
+                <div class="business-item">
+                    <div class="business-item-img" style="background-image: url('https://images.unsplash.com/photo-1514933651165-748f1867d82d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="business-item-content">
+                        <h3 class="business-item-title">Скидка на бизнес-ланч</h3>
+                        <p class="business-item-description">Скидка 20% на бизнес-ланч в будние дни с 12:00 до 15:00</p>
+                        <div style="background: #fff8e6; border: 2px dashed #ffd166; border-radius: 10px; padding: 10px; margin: 15px 0;">
+                            <strong style="color: #e63946; font-size: 1.4rem;">-20% на обед</strong>
+                        </div>
+                        <p><strong>Срок действия:</strong> до 31.12.2024</p>
+                        <button class="btn btn-block">Получить купон</button>
+                    </div>
+                </div>
+                
+                <div class="business-item">
+                    <div class="business-item-img" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="business-item-content">
+                        <h3 class="business-item-title">Комбо-обед</h3>
+                        <p class="business-item-description">Комбо-обед по специальной цене: суп + второе + напиток</p>
+                        <div style="background: #fff8e6; border: 2px dashed #ffd166; border-radius: 10px; padding: 10px; margin: 15px 0;">
+                            <strong style="color: #e63946; font-size: 1.4rem;">12.90 BYN</strong>
+                        </div>
+                        <p><strong>Срок действия:</strong> до 30.11.2024</p>
+                        <button class="btn btn-block">Получить купон</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Описание бизнеса -->
+        <section class="business-section">
+            <h2 class="business-section-title">О нас</h2>
+            <div style="line-height: 1.8; color: #495057;">
+                <p>Кафе "Рандеву" - это место, где вы можете насладиться вкусной домашней кухней в уютной атмосфере. Мы используем только свежие и качественные продукты, чтобы порадовать вас изысканными блюдами.</p>
+                <p>Наш шеф-повар имеет более 15 лет опыта в ресторанном бизнесе и готовит блюда по авторским рецептам. В меню представлены как классические блюда европейской кухни, так и оригинальные авторские разработки.</p>
+                <p>Кафе работает ежедневно с 8:00 до 22:00. У нас есть уютный зал для перекуса и отдельная зона для мероприятий на 20 человек.</p>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section class="business-section">
+            <h2 class="business-section-title">Контакты</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div>
+                    <h3 style="color: #0d4a9e; margin-bottom: 15px;">Адрес и режим работы</h3>
+                    <p><strong>Адрес:</strong> г. Слоним, ул. Ленина, 25</p>
+                    <p><strong>Режим работы:</strong></p>
+                    <ul style="margin: 10px 0 15px 20px;">
+                        <li>Пн-Пт: 8:00 - 22:00</li>
+                        <li>Сб-Вс: 9:00 - 23:00</li>
+                    </ul>
+                    <p><strong>Телефон:</strong> +375 (29) 123-45-67</p>
+                    <p><strong>Email:</strong> info@rendezvous.by</p>
+                </div>
+                <div>
+                    <h3 style="color: #0d4a9e; margin-bottom: 15px;">Как нас найти</h3>
+                    <div style="background: #e9ecef; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <span>Карта с расположением</span>
+                    </div>
+                    <p>Мы находимся в центре Слонима, рядом с Домом культуры. Легко доступно на общественном транспорте.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Футер -->
+    <footer class="business-footer">
+        <div class="footer-content">
+            <div class="footer-logo">Слоним<span>скидки</span></div>
+            <p>Единая платформа для локальных акций в Слониме</p>
+            <div class="social-links">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">V</a>
+                <a href="#" class="social-link">F</a>
+            </div>
+            <div class="copyright">
+                © 2024 Слонимскидки. Все права защищены.<br>
+                Создано с любовью для малого бизнеса Слонима
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
